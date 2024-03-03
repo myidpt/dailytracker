@@ -3,6 +3,9 @@ with PostgreSQL server on the same machine to manage user
 registration and login. Secure session token is generated
 for other APIs.
 
+# Design Document
+https://docs.google.com/document/d/1dn4NJq5_GdUTeeSMol5dy3YIDQe0WQsothA3Nh00T9M/edit
+
 # Dependency Installation
 
 $ brew install postgresql
@@ -31,4 +34,5 @@ $ python main.py
 
 ## Start the web page at port 8000 on the local machine
 
+$ cd web
 $ python -m http.server 8000
