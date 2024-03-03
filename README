@@ -1,0 +1,34 @@
+Currently, this is only a simple API server that interacts
+with PostgreSQL server on the same machine to manage user
+registration and login. Secure session token is generated
+for other APIs.
+
+# Dependency Installation
+
+$ brew install postgresql
+$ pip install Flask Flask-SQLAlchemy
+
+# Set up
+
+## Set up PostgreSQL for the first time on the server 
+
+$ brew services start postgresql
+$ psql postgres
+$ CREATE DATABASE dailytracker;
+$ CREATE USER server WITH PASSWORD '123456';
+$ GRANT ALL PRIVILEGES ON DATABASE dailytracker TO server;
+$ \q
+
+## (Optional) Access ProstgreSQL
+
+$ psql -U server -d dailytracker
+$ \dt
+$ SELECT * from public.users;
+
+## Start the server at port 5000 on the local machine
+
+$ python main.py
+
+## Start the web page at port 8000 on the local machine
+
+$ python -m http.server 8000

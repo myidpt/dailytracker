@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form id="registerForm">
+        Email: <input type="email" id="email" required><br>
+        Password: <input type="password" id="password" required><br>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+        const apiUrl = 'http://localhost:5000'; // Adjust the port if different
+
+        document.getElementById('registerForm').onsubmit = async function(event) {
+            event.preventDefault();
+          const response = await fetch(`${apiUrl}/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                }),
+            });
+            if (response.ok) {
+                alert('Registration successful');
+            } else {
+                alert('Registration failed');
+            }
+        }
+    </script>
+</body>
+</html>
+
